@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(bg1.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.content-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    max-width: 300px; /* Komentari atau hapus baris ini */
+    margin: 0 auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.content-box {
+    display: none;
+    width: 100%;
+}
+
+.content-box.active {
+    display: block;
+    animation: swipe 1s forwards; /* Animasi geser pada konten */
+}
+
+.content-box img {
+    width: 70px; /* Ubah lebar gambar menjadi 50px */
+    height: 70px; /* Ubah tinggi gambar menjadi 50px */
+}
+
+.content-box h2 {
+    margin-top: 0;
+    animation: fadeIn 1s forwards; /* Animasi fade in pada judul */
+}
+
+.content-box p {
+    margin-bottom: 10px;
+    overflow: hidden;
+    white-space: pre-wrap; /* Mengatasi teks yang tidak terlihat */
+    opacity: 0; /* Opacity awal diatur ke 0 untuk efek fade in */
+    animation: fadeIn 1s forwards; /* Animasi fade in pada konten */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes swipe {
+    from {
+        transform: translateX(-100%); /* Geser dari sebelah kiri di luar layar */
+    }
+    to {
+        transform: translateX(0); /* Geser ke posisi awal */
+    }
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block; /* Menetapkan display ke block agar tombol tetap di tengah */
+    margin: 10px auto; /* Membuat tombol berada di tengah */
+}
+@media only screen and (max-width: 600px) {
+    .content-container {
+        max-width: 100%;
+    }
+
+    button {
+        width: 100%; /* Tombol mengambil lebar penuh pada layar kecil */
+    }
+}
